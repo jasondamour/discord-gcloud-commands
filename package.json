@@ -1,0 +1,17 @@
+{
+  "name": "discord-bot",
+  "version": "0.0.1",
+  "description": "A Discord bot to provision Google Compute Engine VM Instances",
+  "main": "src/gateway.js",
+  "author": "Jason D'Amour",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "@google-cloud/compute": "^2.4.1",
+    "discord.js": "^12.5.1",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "slash-create": "^1.2.0",
+    "string-table": "^0.1.5"
+  }
+}
