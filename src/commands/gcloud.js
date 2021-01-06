@@ -1,10 +1,9 @@
 const { SlashCommand, CommandOptionType } = require('slash-create');
 const execSync = require('child_process').execSync;
 
-const USER_ROLE_ID = process.env.USER_ROLE_ID || '789184783942549545';
+const MANAGER_ROLE_ID = process.env.MANAGER_ROLE_ID || '789078608236511252';
 
-
-module.exports = class ServersCommand extends SlashCommand {
+module.exports = class GcloudCommand extends SlashCommand {
   constructor(creator) {
     super(creator, {
       name: 'gcloud',
@@ -60,7 +59,7 @@ module.exports = class ServersCommand extends SlashCommand {
   }
 
   async run(ctx) {
-    if (ctx.member.roles.includes(USER_ROLE_ID)) {
+    if (ctx.member.roles.includes(MANAGER_ROLE_ID)) {
       var subcommand = ctx.subcommands[0];
       await ctx.acknowledge();
 

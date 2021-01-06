@@ -8,9 +8,11 @@
   "private": true,
   "dependencies": {
     "@google-cloud/compute": "^2.4.1",
+    "cat-loggr": "^1.1.0",
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
+    "rcon-ts": "^1.2.3",
     "slash-create": "^1.2.0",
     "string-table": "^0.1.5"
   }

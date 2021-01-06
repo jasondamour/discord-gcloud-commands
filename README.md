@@ -8,6 +8,19 @@ This is the source code for a discord "bot" to list, start, and stop GCP compute
 2. Set up this Application in GCP, either in Compute Engine, Cloud Run, or Cloud Functions (Functions is recommended, as its cheapest)
 3. Users in the Discord server can now turn on and off the custom game servers! Want to play a bit of Minecraft without messaging that annoying nerdy kid to turn on the server? No Problem!
 
+## Commands
+The commands shipped with this repo are fairly simple. Typing `/servers` into a Discord server with the commands will bring up the autocomplete menu, with more details about each command.
+
+```
+  basic commands to check compute instances:
+  /servers list
+  /servers start (name) [zone]
+  /servers stop (name) [zone]
+
+  more advanced commands to interact with running servers
+  /rcon (host) (port) (password) (command)
+```
+
 # Deploying the Bot
 
 ## General
@@ -31,7 +44,10 @@ This Application is built on Discords new [Slash Commands](https://discord.com/d
 ## Prerequisites
 1. [Have a Google Cloud Platform account and Project](https://cloud.google.com/)
 2. [Create an Application in Discord Dev Portal](https://discord.com/developers/applications).
-3. Invite the Application to your Discord Server. If your application only uses slash commands (you have not modified this Application), then `SCOPE` is `applications.commands`. If you're modifying this Application and need a typical bot with presence, then `SCOPE` is `applications.commands%20bot`. Replace the values, then paste the following in your browser:
+3. Invite the Application to your Discord Server.
+  - `CLIENT_ID` comes from your Application page in the Discord Developer Portal
+  - If your application only uses slash commands (you have not modified this Application), then `SCOPE` is `applications.commands`.
+  - If you're modifying this Application and need a typical bot with presence, then `SCOPE` is `applications.commands%20bot`. Replace the values, then paste the following in your browser:
 ```
 https://discord.com/oauth2/authorize?client_id=[CLIENT_ID]&scope=[SCOPE]
 ```
@@ -98,5 +114,7 @@ This Application requires the following variables at runtime:
   | DISCORD_GUILD_ID            | [optional, but strongly recommended] The ID of the discord server to register commands. 1 hour delay if not set |
   | GCLOUD_PROJECT              | The GCP Project ID                                                                                              |
   | DEFAULT_COMPUTE_ZONE        | [optional] The default zone to use for Compute Engine                                                           |
+  | USER_ROLE_ID                | The Role ID of low-permission users who can list, start, and stop instances                                     |
+  | MANAGER_ROLE_ID             | The Role ID of high-permission users who can directly run RCON commands                                         |
 
 > If you face any problems, feel free to create an Issue from the Issues tab. I will try to respond as early as possible.
