@@ -66,7 +66,7 @@ https://discord.com/oauth2/authorize?client_id=[CLIENT_ID]&scope=[SCOPE]
   | Advanced: Service Account   | App Engine Default service account                                                                            |
   | Environment Variables       | [*see below*](#environment-variables)                                                                        |
 
-3. Press `Next`. On the `Source` page, you'll need to copy the source code files. I recommend just using the file editor. Delete all the default files, and create the following, copying the contents.
+3. Press `Next`. On the `Source` page, set Function entry point to `interactions` (see https://github.com/jasondamour/discord-gcloud-commands/issues/1). You'll also need to copy the source code files. I recommend just using the file editor. Delete all the default files, and create the following, copying the contents.
   - package.json (edit the `main` property to be `cloud-functions.js`)
   - cloud-functions.js
   - commands/servers.js
